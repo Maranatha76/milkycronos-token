@@ -41,3 +41,19 @@ Official smart contract repository and technical documentation for the **milkyCr
 ## Disclaimer
 
 The information provided in this repository is strictly for technical documentation and development purposes. Digital assets carry significant risk; always Do Your Own Research (DYOR) and verify the official contract address before interacting with any smart contract.
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+/**
+ * @title milkyCronos (MCRO)
+ * @dev Implementation of the fixed-supply CRC-20 / ERC-20 token on Cronos.
+ */
+contract MilkyCronos is ERC20 {
+    uint256 private constant INITIAL_SUPPLY = 10_000_000 * 10**18;
+
+    constructor() ERC20("milkyCronos", "MCRO") {
+        _mint(msg.sender, INITIAL_SUPPLY);
+    }
+}
